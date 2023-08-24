@@ -1,33 +1,34 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace RouteCourseApp
 {
-    public class Program
+    public class Program2
     {
-        static void Main(string[] args)
+        static void Main2(string[] args)
         {
-            Stopwatch stopWatch = new Stopwatch();
-            stopWatch.Start();
+            //Stopwatch stopWatch = new Stopwatch();
+            //stopWatch.Start();
 
-            var setsNum = int.Parse(args[0]);
-            //var setsNum = int.Parse(Console.ReadLine());
+            //var setsNum = int.Parse(args[0]);
+            var setsNum = int.Parse(Console.ReadLine());
 
             int lineCount = 1;
             for (int r = 0; r < setsNum; r++)
             {
-                var counter = int.Parse(args[lineCount++]);
-                //var counter = int.Parse(Console.ReadLine());
+                //var counter = int.Parse(args[lineCount++]);
+                var counter = int.Parse(Console.ReadLine());
 
 
                 HashSet<RangeDate> ranges = new HashSet<RangeDate>();
                 bool flag = false;
                 for (int i = 0; i < counter; i++)
                 {
-                    //var commonArr = Console.ReadLine().Split('-');
-                    string[] commonArr = args[lineCount++].Split('-');
+                    var commonArr = Console.ReadLine().Split('-');
+                    //string[] commonArr = args[lineCount++].Split('-');
                     if (flag) continue;
 
                     var start = commonArr[0].Split(':').Select(x => int.Parse(x)).ToArray();
@@ -73,15 +74,15 @@ namespace RouteCourseApp
                     Console.WriteLine("NO");
                 }
 
-                
+
             }
 
-            stopWatch.Stop();
-            TimeSpan ts = stopWatch.Elapsed;
-            string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:00}",
-                ts.Hours, ts.Minutes, ts.Seconds,
-                ts.Milliseconds / 10);
-            Console.WriteLine("RunTime " + elapsedTime);
+            //stopWatch.Stop();
+            //TimeSpan ts = stopWatch.Elapsed;
+            //string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:00}",
+            //    ts.Hours, ts.Minutes, ts.Seconds,
+            //    ts.Milliseconds / 10);
+            //Console.WriteLine("RunTime " + elapsedTime);
 
 
 
@@ -95,14 +96,4 @@ namespace RouteCourseApp
 
     }
 
-    public class RangeDate
-    {
-        public long Start { get; set; }
-        public long End { get; set; }
-
-        public static bool IsInRange(long start, long end, long current)
-        {
-            return current >= start && current <= end;
-        }
-    }
 }
